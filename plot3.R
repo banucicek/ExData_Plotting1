@@ -1,5 +1,8 @@
 hpc_data <- read.table("./Data/household_power_consumption.txt",sep = ";",header = TRUE)
 hpc_data$Date <- as.Date(hpc_data$Date,"%d/%m/%Y")
+hpc_data$Sub_metering_1 <- as.numeric(as.character(hpc_data$Sub_metering_1))
+hpc_data$Sub_metering_2 <- as.numeric(as.character(hpc_data$Sub_metering_2))
+
 feb1st <- as.Date("2007-02-01")
 feb2nd <- as.Date("2007-02-02")
 feb1and2 <- subset(hpc_data,Date>=feb1st & Date<=feb2nd)
